@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  entres:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - static_vol:/travail/app/static
+      - media_vol:/travail/app/media
+    ports:
+      - "8000:8000"
+    
+
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_vol:/travail/app/static
+      - media_vol:/travail/app/media
+    ports:
+      - "80:80"
+    depends_on:
+      - entres
+
+volumes:
+  static_vol:
+  media_vol:
