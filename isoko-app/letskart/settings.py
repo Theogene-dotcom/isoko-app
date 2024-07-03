@@ -72,7 +72,7 @@ DATABASES = {
         'USER':config('user'),
         'PASSWORD':config('password'),
         'HOST':config('host'),
-        'PORT':5432
+        'PORT':5430
     }
 }
 
